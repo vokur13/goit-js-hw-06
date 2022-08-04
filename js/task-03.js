@@ -14,43 +14,22 @@ const images = [
 ];
 
 const listEl = document.querySelector('.gallery');
-console.log(listEl);
 
-const elements = images
-  .map(element => {
-    `<li class="item">${element}</li>`;
-  })
-  .join('');
+{
+  /* <li class="galery__item">
+                <img class="galery__img" src="" alt="">
+        </li> */
+}
 
-console.log(elements);
+const galeryItemMarkup = ({ url, alt }) => {
+  return `
+        <li class="galery__item">
+                <img class="galery__img" src="${url}" alt="${alt}" width="720">
+        </li>
+        `;
+};
 
-listEl.insertAdjacentHTML('afterbegin', elements);
+const galeryItemMap = images.map(galeryItemMarkup).join('');
+console.log(galeryItemMap);
 
-// const list = document.querySelector('.list');
-
-// const newTechnologies = ['React', 'TypeScript', 'Node.js'];
-// const markup = newTechnologies
-//   .map(technology => `<li class="list-item new">${technology}</li>`)
-//   .join('');
-
-// const elements = images.map(element => {
-//   const itemEl = document.createElement('li');
-//   const imageEl = document.createElement('img');
-// });
-
-//
-
-// const imageEl = document.createElement('img');
-// imageEl.src = 'https://cdn.pixabay.com/photo/2018/07/26/07/45/valais-3562988_1280.jpg';
-// imageEl.alt = 'valais-alpine-mountains-glacier';
-// imageEl.width = 320;
-// console.log(imageEl);
-
-// const elements = colorPickerOptions.map(element => {
-//   const buttonEl = document.createElement('button');
-//   buttonEl.type = 'button';
-//   buttonEl.classList.add('color-picker__option');
-//   buttonEl.textContent = element.label;
-//   buttonEl.style.backgroundColor = element.color;
-//   return buttonEl;
-// });
+listEl.insertAdjacentHTML('afterbegin', galeryItemMap);
