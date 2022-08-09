@@ -1,10 +1,11 @@
 const textInput = document.querySelector('#name-input');
 const textOutput = document.querySelector('#name-output');
+const textOutputContent = textOutput.firstChild;
 
-textInput.addEventListener('input', event => {
-  textOutput.textContent = event.currentTarget.value;
+textInput.addEventListener('input', onInputText);
 
-  console.log('event: ', event);
-  console.log('event type: ', event.type);
-  console.log('currentTarget: ', event.currentTarget);
-});
+function onInputText(event) {
+  event.currentTarget.value === ''
+    ? (textOutput.textContent = textOutputContent.textContent)
+    : (textOutput.textContent = event.currentTarget.value);
+}
