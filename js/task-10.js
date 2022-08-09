@@ -20,17 +20,17 @@ function onNumberGet(event) {
 }
 
 function createBoxes() {
-  let boxHeight = 20;
-  let boxWidth = 20;
+  let size = 20;
+  const boxElArr = [];
   for (let index = 0; index < refs.inputEl.value; index += 1) {
     const box = document.createElement('div');
-    boxHeight += 10;
-    boxWidth += 10;
-    box.style.height = `${boxHeight}px`;
-    box.style.width = `${boxWidth}px`;
+    size += 10;
+    box.style.height = `${size}px`;
+    box.style.width = `${size}px`;
     box.style.backgroundColor = getRandomHexColor();
-    boxesEl.append(box);
+    boxElArr.push(box);
   }
+  boxesEl.append(...boxElArr);
 }
 
 function destroyBoxes() {
