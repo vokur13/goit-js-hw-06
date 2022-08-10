@@ -13,3 +13,5 @@ function onInputClassRemove() {
   textInput.classList.remove('valid');
   textInput.classList.remove('invalid');
 }
+
+// Добавлена функция onInputClassRemove()
