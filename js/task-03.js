@@ -21,15 +21,30 @@ const listEl = document.querySelector('.gallery');
         </li> */
 }
 
-const galeryItemMarkup = ({ url, alt }) => {
-  return `
-        <li class="galery__item">
+// const galeryItemMarkup = ({ url, alt }) => {
+//   return `
+//         <li class="galery__item">
+//                 <img class="galery__img" src="${url}" alt="${alt}" width="720">
+//         </li>
+//         `;
+// };
+
+// const galeryItemMap = images.map(galeryItemMarkup).join('');
+// console.log(galeryItemMap);
+
+// listEl.insertAdjacentHTML('afterbegin', galeryItemMap);
+
+//
+
+const initialValue = '';
+const galeryItemMap = images.reduce((acc, { url, alt }) => {
+  return (
+    acc +
+    `<li class="galery__item">
                 <img class="galery__img" src="${url}" alt="${alt}" width="720">
         </li>
-        `;
-};
-
-const galeryItemMap = images.map(galeryItemMarkup).join('');
-console.log(galeryItemMap);
+        `
+  );
+}, initialValue);
 
 listEl.insertAdjacentHTML('afterbegin', galeryItemMap);
