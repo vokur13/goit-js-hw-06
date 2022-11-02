@@ -6,6 +6,6 @@ textInput.addEventListener('input', onInputText);
 
 function onInputText(event) {
   event.currentTarget.value === ''
-    ? (textOutput.textContent = textOutputContent.textContent)
-    : (textOutput.textContent = event.currentTarget.value);
+    ? (textOutput.textContent = textOutputContent.textContent.trim())
+    : (textOutput.textContent = event.currentTarget.value.trim());
 }
